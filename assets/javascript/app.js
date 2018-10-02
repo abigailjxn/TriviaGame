@@ -42,7 +42,7 @@ function startGame() {
     $(".timercontainer").show();
     $(".questioncontainer").show();
     // Start Timer
-    startTimer();
+    // startTimer();
     // Display questions
     displayQuestions();
     // Display options
@@ -53,7 +53,16 @@ function startGame() {
 }
 
 function displayQuestions() {
-
+    for (var i = 0; i < questions.length; i++) {
+        var questionText = $("<p>");
+        questionText.text(questions[i].text);
+        $(".questions").append(questionText);
+        for (var j = 0; j < questions[i].options.length; j++){
+            var optionButton = $("<br><input type = 'radio' name =" + i + ">");
+            // optionButton.text(options[j]);
+            $(questionText).append(optionButton);
+        }
+    }
 }
 
 function startTimer(isTimerRunning) {
