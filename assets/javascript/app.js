@@ -2,17 +2,17 @@
 var questions = [
     {
         text: "What color is the sky?",
-        options:["red", "blue", "purple"],
+        options: ["red", "blue", "purple"],
         correctIndex: 1,
     },
     {
         text: "What color is the sky?",
-        options:["red", "blue", "purple"],
+        options: ["red", "blue", "purple"],
         correctIndex: 2,
     },
     {
         text: "What color is the sky?",
-        options:["red", "blue", "purple"],
+        options: ["red", "blue", "purple"],
         correctIndex: 0,
     }
 ]
@@ -45,8 +45,9 @@ function startGame() {
     // startTimer();
     // Display questions
     displayQuestions();
-    // Display options
+
     // Include Submit button
+    $(".restartbutton")
     // Click submit
     // end game
 
@@ -57,8 +58,10 @@ function displayQuestions() {
         var questionText = $("<p>");
         questionText.text(questions[i].text);
         $(".questions").append(questionText);
-        for (var j = 0; j < questions[i].options.length; j++){
-            var optionButton = $("<br><input type = 'radio' name =" + i + ">");
+        // Display options
+        for (var j = 0; j < questions[i].options.length; j++) {
+            var optionButton = $("<br><input type = 'radio' name =" + i + ">" + questions[i].options[j] + "</input>");
+            // $(optionButton).html(questions[i].options[j]);
             // optionButton.text(options[j]);
             $(questionText).append(optionButton);
         }
@@ -96,7 +99,7 @@ function endGame() {
 
     // Restart game (try again), same as start game? call start game function again
     $(".restartbutton").click(function () {
-        
+
         $(".instructions").show();
         $(".startbutton").show();
         preGame();
