@@ -21,6 +21,9 @@ var questions = [
 var timer = 0;
 var totalGameTime = 5;
 var isTimerRunning = false;
+var numCorrect = 0;
+var numIncorrect = 0;
+var numUnanswered = 0;
 
 //Display Instructions and Button
 function preGame() {
@@ -29,7 +32,7 @@ function preGame() {
     $(".timercontainer").hide();
     $(".questioncontainer").hide();
     $(".results").hide();
-    $(".startbutton").click(function () {
+    $(".startbutton").click(function (event) {
         $(".instructions").hide();
         $(this).hide();
         startGame();
@@ -42,13 +45,16 @@ function startGame() {
     $(".timercontainer").show();
     $(".questioncontainer").show();
     // Start Timer
-    // startTimer();
+    startTimer();
     // Display questions
     displayQuestions();
 
     // Include Submit button
-    $(".restartbutton")
-    // Click submit
+     // Click submit
+    $(".submitbutton").click(function(event){
+        endGame();
+    });
+   
     // end game
 
 }
@@ -58,14 +64,17 @@ function displayQuestions() {
         var questionText = $("<p>");
         questionText.text(questions[i].text);
         $(".questions").append(questionText);
-        // Display options
+        // Display options as buttons
         for (var j = 0; j < questions[i].options.length; j++) {
             var optionButton = $("<br><input type = 'radio' name =" + i + ">" + questions[i].options[j] + "</input>");
-            // $(optionButton).html(questions[i].options[j]);
-            // optionButton.text(options[j]);
             $(questionText).append(optionButton);
         }
+        
     }
+    // if ($(".restartbutton").click(function(){
+    //     $(".questions").empty();
+    //     console.log("reset");
+    // }));
 }
 
 function startTimer(isTimerRunning) {
@@ -94,12 +103,14 @@ function endGame() {
     $(".timercontainer").hide();
     $(".questioncontainer").hide();
     $(".results").show();
+        $("#correct").text("Correct : " + numCorrect);
+        $("#incorrect").text("Incorrect : " + numIncorrect);
+        $("#unanswered").text("Unanswered : " + numUnanswered);
 
     // Display correct, incorrect, unanswered 
 
     // Restart game (try again), same as start game? call start game function again
     $(".restartbutton").click(function () {
-
         $(".instructions").show();
         $(".startbutton").show();
         preGame();
