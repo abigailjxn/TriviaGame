@@ -48,7 +48,12 @@ body {
     padding: 1em;
 }
 
+.questions {
+    text-align: left;
+}
+
 p {
+    line-height: 30px;
     margin: 1em;
 }
 

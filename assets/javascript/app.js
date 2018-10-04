@@ -1,18 +1,33 @@
 // Questions
 var questions = [
     {
-        text: "What color is the sky?",
-        options: ["red", "blue", "purple"],
-        correctIndex: 1,
-    },
-    {
-        text: "What color is the sky?",
-        options: ["red", "blue", "purple"],
+        text: "Who was Princess Zelda named after?",
+        options: ["Zelda Williams", "Zelda Fitzgerald", "Zelda Spellman", "No one, the creators simply liked the name"],
         correctIndex: 2,
     },
     {
-        text: "What color is the sky?",
-        options: ["red", "blue", "purple"],
+        text: "Who has been the main composer for the music in the Legend of Zelda franchise?",
+        options: ["Nobuo Uematsu", "Junichi Masuda", "Yoko Shimamura", "Koji Kondo"],
+        correctIndex: 3,
+    },
+    {
+        text: "What benefits does the Bunny Hood have in Ocarina of Time?",
+        options: ["Makes Link run faster", "Allows Link to hear animals thoughts", "Nothing, it's a part of a trading game", "There is no Bunny Hood in Ocarina of Time"],
+        correctIndex: 2,
+    },
+    {
+        text: "In Majora's Mask, what mask do you get on the Moon before facing Majora?",
+        options: ["Fierce Diety Mask", "Majora's Mask", "Hero's Mask", "Captain's Hat"],
+        correctIndex: 0,
+    },
+    {
+        text: "Who is Link's main companion in Skyward Sword?",
+        options: ["Zelda", "Fi", "Navi", "Midna"],
+        correctIndex: 1,
+    },
+    {
+        text: "What title was part of the now notorious Philips CD-i games that are not considered Zelda canon?",
+        options: ["Zelda: The Wand of Gamelon", "The Adventure of Link", "Four Swords", "Oracle of Seasons"],
         correctIndex: 0,
     }
 ]
