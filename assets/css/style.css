@@ -1,13 +1,27 @@
 header {
     text-align: center;
     width: 100%;
-    /* background-image:  */
+    background-image: url("../images/mastersword_header.jpg");
 
 }
 
 h1 {
     font-family: 'Srisakdi', cursive;
     font-size: 3em;
-    margin: 1em;
-    padding: .5em;
+    padding: 1.5em;
+}
+
+body {
+    font-family: 'PT Serif', serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.game-container {
+    
+}
+.instructions {
+    
 }

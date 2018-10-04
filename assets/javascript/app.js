@@ -27,7 +27,7 @@ var numUnanswered = 0;
 
 //Display Instructions and Button
 function preGame() {
-    var instructionsContent = "blah blah instructions";
+    var instructionsContent = "Each highlight must have it's own private shadow. You have to make those little noises or it won't work. The only prerequisite is that it makes you happy. If it makes you happy then it's good. We spend so much of our life looking - but never seeing. Imagination is the key to painting. If these lines aren't straight, your water's going to run right out of your painting and get your floor wet.";
     $(".instructions").text(instructionsContent);
     $(".timercontainer").hide();
     $(".questioncontainer").hide();
