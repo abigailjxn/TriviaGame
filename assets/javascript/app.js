@@ -32,28 +32,25 @@ function preGame() {
     $(".timercontainer").hide();
     $(".questioncontainer").hide();
     $(".results").hide();
-    $(".startbutton").click(function (event) {
-        $(".instructions").hide();
-        $(this).hide();
-        startGame();
-    })
-}
+  
+};
+
 
 
 // Start Game function
 function startGame() {
+    totalGameTime = 5;
     $(".timercontainer").show();
     $(".questioncontainer").show();
     // Start Timer
     startTimer();
     // Display questions
+    $(".questions").empty();
     displayQuestions();
 
     // Include Submit button
      // Click submit
-    $(".submitbutton").click(function(event){
-        endGame();
-    });
+  
    
     // end game
 
@@ -66,7 +63,8 @@ function displayQuestions() {
         $(".questions").append(questionText);
         // Display options as buttons
         for (var j = 0; j < questions[i].options.length; j++) {
-            var optionButton = $("<br><input type = 'radio' name =" + i + ">" + questions[i].options[j] + "</input>");
+            var optionButton = $("<br><input type = 'radio' value = " + j + " name =" + i + ">" + questions[i].options[j] + "</input>");
+            // $(optionButton).val([j]);
             $(questionText).append(optionButton);
         }
         
@@ -110,11 +108,7 @@ function endGame() {
     // Display correct, incorrect, unanswered 
 
     // Restart game (try again), same as start game? call start game function again
-    $(".restartbutton").click(function () {
-        $(".instructions").show();
-        $(".startbutton").show();
-        preGame();
-    })
+   
 }
 
 
@@ -124,7 +118,21 @@ function endGame() {
 
 $(document).ready(function () {
     preGame();
-
+    $(".startbutton").click(function (event) {
+        $(".instructions").hide();
+        $(this).hide();
+        startGame();
+    });
+    
+    $(".submitbutton").click(function(event){
+        endGame();
+    });
+    
+    $(".restartbutton").click(function () {
+        $(".instructions").show();
+        $(".startbutton").show();
+        preGame();
+    });
 
     console.log("this");
 });
