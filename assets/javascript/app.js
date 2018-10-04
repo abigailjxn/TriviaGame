@@ -47,7 +47,7 @@ var numUnanswered = 0;
 
 //Display Instructions and Button
 function preGame() {
-    var instructionsContent = "Each highlight must have it's own private shadow. You have to make those little noises or it won't work. The only prerequisite is that it makes you happy. If it makes you happy then it's good. We spend so much of our life looking - but never seeing. Imagination is the key to painting. If these lines aren't straight, your water's going to run right out of your painting and get your floor wet.";
+    var instructionsContent = "Ah, the Legend of Zelda. A beloved series from the OG's of video games. Sure, you may have played it growing up, but how well do you really know the franchise? Answer the following trivia questions to find out or risk the return of Ganon!";
     $(".instructions").text(instructionsContent);
     $(".timercontainer").hide();
     $(".questioncontainer").hide();
