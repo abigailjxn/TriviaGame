@@ -11,17 +11,83 @@ h1 {
     padding: 1.5em;
 }
 
+h3 {
+    font-family: 'Srisakdi', cursive;
+    font-size: 1.5em;
+    padding: .5em;
+}
+
+
+
 body {
     font-family: 'PT Serif', serif;
+    background-color: black;
+    
 }
 
 .container {
     text-align: center;
+    width: 100%;
+    height: 100%;
 }
 
-.game-container {
-    
+.content-container {
+    margin: 2em auto;
+    padding: 1em;
+    height: 70%;
+    width: 70%;
+    opacity: 75%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: azure;
 }
 .instructions {
+    text-align: justify;
+    justify-content: baseline;
+    font-size: 1.2em;
+    padding: 1em;
+}
+
+p {
+    margin: 1em;
+}
+
+input {
+    display: inline;
+}
+
+#correct, #incorrect, #unanswered {
+    margin: 1em;
+}
+
+button {
+    border: none;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2em 0 0;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #e7e7e7;
+    border-radius: 5px;
+    font-family: 'PT Serif', serif;
+}
+
+button:hover {
+    background-color: #e7e7e7;
+    color: white;
+}
+
+footer {
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     
 }
