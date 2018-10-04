@@ -67,10 +67,7 @@ function startGame() {
     // Display questions
     $(".questions").empty();
     displayQuestions();
-
-
     // end game
-
 }
 
 function displayQuestions() {
@@ -78,13 +75,25 @@ function displayQuestions() {
         var questionText = $("<p>");
         questionText.text(questions[i].text);
         $(".questions").append(questionText);
+
         // Display options as buttons
         for (var j = 0; j < questions[i].options.length; j++) {
             var optionButton = $("<br><input type = 'radio' value = " + j + " name =" + i + ">" + questions[i].options[j] + "</input>");
             $(questionText).append(optionButton);
         }
-
+        var selectedButton = $("input [type='radio'][name='i']:checked").val();
+        console.log(selectedButton);
+        if (selectedButton === questions[i].correctIndex) {
+            numCorrect++;
+        }
+        else if (selectedButton !== questions[i].correctIndex) {
+            numIncorrect++;
+        }
+        else {
+            numUnanswered++;
+        }
     }
+
 }
 
 function startTimer(isTimerRunning) {
@@ -103,7 +112,8 @@ function resetTimer() {
 
 }
 
- // Display correct, incorrect, unanswered 
+
+// Display correct, incorrect, unanswered 
 function displayResults() {
     $("#correct").text("Correct : " + numCorrect);
     $("#incorrect").text("Incorrect : " + numIncorrect);
