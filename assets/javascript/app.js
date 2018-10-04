@@ -32,7 +32,7 @@ function preGame() {
     $(".timercontainer").hide();
     $(".questioncontainer").hide();
     $(".results").hide();
-  
+
 };
 
 
@@ -49,9 +49,9 @@ function startGame() {
     displayQuestions();
 
     // Include Submit button
-     // Click submit
-  
-   
+    // Click submit
+
+
     // end game
 
 }
@@ -67,7 +67,7 @@ function displayQuestions() {
             // $(optionButton).val([j]);
             $(questionText).append(optionButton);
         }
-        
+
     }
     // if ($(".restartbutton").click(function(){
     //     $(".questions").empty();
@@ -76,21 +76,18 @@ function displayQuestions() {
 }
 
 function startTimer(isTimerRunning) {
-    if (!isTimerRunning) {
-        isTimerRunning = true;
-        timer = setInterval(function () {
-            $(".timercountdown").text(totalGameTime);
-            totalGameTime--;
-            if (totalGameTime < 0) {
-                isTimerRunning = false;
-                clearInterval(timer);
-                totalGameTime = 5;
-                endGame();
-            }
-        }, 1000);
-    }
+    timer = setInterval(function () {
+        $(".timercountdown").text(totalGameTime);
+        totalGameTime--;
+        if (totalGameTime < 0) {
 
+            // totalGameTime = 5;
+            endGame();
+        }
+    }, 1000);
 }
+
+
 
 function resetTimer() {
 
@@ -101,14 +98,14 @@ function endGame() {
     $(".timercontainer").hide();
     $(".questioncontainer").hide();
     $(".results").show();
-        $("#correct").text("Correct : " + numCorrect);
-        $("#incorrect").text("Incorrect : " + numIncorrect);
-        $("#unanswered").text("Unanswered : " + numUnanswered);
+    clearInterval(timer);
+    $("#correct").text("Correct : " + numCorrect);
+    $("#incorrect").text("Incorrect : " + numIncorrect);
+    $("#unanswered").text("Unanswered : " + numUnanswered);
 
     // Display correct, incorrect, unanswered 
 
     // Restart game (try again), same as start game? call start game function again
-   
 }
 
 
@@ -123,11 +120,11 @@ $(document).ready(function () {
         $(this).hide();
         startGame();
     });
-    
-    $(".submitbutton").click(function(event){
+
+    $(".submitbutton").click(function (event) {
         endGame();
     });
-    
+
     $(".restartbutton").click(function () {
         $(".instructions").show();
         $(".startbutton").show();
