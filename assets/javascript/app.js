@@ -40,7 +40,6 @@ var questions = [
 // Global Variables
 var timer = 0;
 var totalGameTime = 120;
-var isTimerRunning = false;
 var numCorrect = 0;
 var numIncorrect = 0;
 var numUnanswered = 0;
@@ -81,20 +80,41 @@ function displayQuestions() {
             var optionButton = $("<br><input type = 'radio' value = " + j + " name =" + i + ">" + questions[i].options[j] + "</input>");
             $(questionText).append(optionButton);
         }
-        var selectedButton = $("input [type='radio'][name='i']:checked").val();
+        // var selectedButton = $("input [type='radio'][name='" + i + "']:checked").val();
+        // console.log(selectedButton);
+        // // console.log($("input:checked").val());
+        // if (selectedButton === questions[i].correctIndex) {
+        //     numCorrect++;
+        // }
+        // else if (selectedButton !== questions[i].correctIndex) {
+        //     numIncorrect++;
+        // }
+        // else {
+        //     numUnanswered++;
+        // }
+    }
+
+}
+
+// repeated code above here in another function, but same result -> returns undefined
+function updateScore() {
+    for (var i = 0; i < questions.length; i++) {
+        var selectedButton = $("input [type='radio'][name='" + i + "']:checked").val();
         console.log(selectedButton);
+        // console.log($("input:checked").val());
         if (selectedButton === questions[i].correctIndex) {
             numCorrect++;
         }
-        else if (selectedButton !== questions[i].correctIndex) {
-            numIncorrect++;
+        else if (selectedButton === null || undefined) {
+            numUnanswered++;
         }
         else {
-            numUnanswered++;
+            numIncorrect++;
         }
     }
 
 }
+
 
 function startTimer(isTimerRunning) {
     timer = setInterval(function () {
@@ -104,12 +124,6 @@ function startTimer(isTimerRunning) {
             endGame();
         }
     }, 1000);
-}
-
-
-
-function resetTimer() {
-
 }
 
 
@@ -147,6 +161,8 @@ $(document).ready(function () {
         $(".startbutton").show();
         preGame();
     });
+
+    updateScore();
 
     console.log("this");
 });
